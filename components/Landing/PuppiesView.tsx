@@ -44,7 +44,7 @@ const PuppiesView = () => {
 const PuppyWrapper = styled.div`
     display: flex;
     justify-content: space-around;
-    margin-top: 40px;
+    margin : 40px 0px ;
 `;
 
 const CardView = styled.div`

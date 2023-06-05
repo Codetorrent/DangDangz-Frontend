@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from "@emotion/styled";
 import PuppiesView from './PuppiesView';
+import CollectionRank from './CollectionRank';
 
 
 const Landing = () => {
@@ -8,9 +9,7 @@ const Landing = () => {
     <LandingWrapper>
             <Title>Choose your puppy</Title>
         <PuppiesView />
-        <CollectionListView>
-        
-        </CollectionListView>
+        <CollectionRank />
     </LandingWrapper>
   )
 }
