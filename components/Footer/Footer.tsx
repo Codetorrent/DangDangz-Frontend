@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from "@emotion/styled";
+import Image from "next/image";
 import {FaTwitter , FaDiscord, FaTelegramPlane, FaInstagram} from "react-icons/fa";
-import {SiOpensea} from "react-icons/si";
 
 const Footer = () => {
   return (
@@ -28,7 +28,7 @@ const Footer = () => {
             <div style={{display: 'flex', flexDirection: 'row'}}>
                 <DescriptionView>
                     <LogoView>
-                        <SiOpensea />
+                        <Image src={"/dangdangz-logo.png"} alt="dangdangz logo" width={40} height={40} style={{transform: 'rotate(180deg)'}} />
                     </LogoView>
                     <TitleDiv>
                         DangDangz
@@ -135,11 +135,14 @@ const TitleDiv = styled.div`
 `;
 
 const LogoView = styled.div`
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 41px;
+    height: 41px;
     margin: 10px;
-    font-size: xx-large;
+    border-radius: 50%;
+    background-color: #fff;
 `;
 
 const QuickMenu = styled.div`

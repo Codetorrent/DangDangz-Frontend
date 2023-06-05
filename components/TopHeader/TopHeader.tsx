@@ -9,7 +9,9 @@ const TopHeader = () => {
     return (
         <TopHeaderView>
             {/* svg 파일 첫 글자 대문자 안됨 */}
-            <Image src="/opensea.svg" alt="logo" width={40} height={40} />
+            <LogoView>
+                <Image src={"/dangdangz-logo.png"} alt="logo" width={40} height={40} style={{transform: 'rotate(180deg)', position: 'relative', top: '4px'}} />
+            </LogoView>
             <Title>DangDangz</Title>
             <SearchView>
                 {/* 자동완성로직 */}
@@ -44,6 +46,16 @@ const TopHeader = () => {
 };
 
 export default TopHeader;
+
+const LogoView = styled.div`
+    display: flex;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    padding: 0px 5px 0px;
+    border-radius: 50%;
+    box-shadow: 0px 5px 5px #aeabab;
+`;
 
 const TopHeaderView = styled.div`
     padding: 16px 32px;

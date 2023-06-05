@@ -42,7 +42,7 @@ const BannerView = styled.div`
 `;
 
 const Title = styled.div`
-    font-family: inter;
+    font-family: 'Passion One';
     color: #D43A38;
     font-size: 80px;
     font-weight: 700;
