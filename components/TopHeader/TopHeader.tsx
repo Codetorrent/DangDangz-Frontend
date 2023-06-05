@@ -2,13 +2,14 @@ import styled from "@emotion/styled";
 import { Autocomplete, TextField } from "@mui/material";
 import Image from "next/image";
 import React from "react";
-import WalletIcon from "@mui/icons-material/Wallet";
+import { MdOutlineAccountBalanceWallet } from 'react-icons/md'
+
 
 const TopHeader = () => {
     return (
         <TopHeaderView>
             {/* svg 파일 첫 글자 대문자 안됨 */}
-            <Image src="/opensea.svg" width={40} height={40} />
+            <Image src="/opensea.svg" alt="logo" width={40} height={40} />
             <Title>DangDangz</Title>
             <SearchView>
                 {/* 자동완성로직 */}
@@ -29,13 +30,12 @@ const TopHeader = () => {
             </SearchView>
 
             <MenuView>
-                <MenuItem>Explore</MenuItem>
-                <MenuItem>Create</MenuItem>
+                <MenuItem>
+                    Connect wallet 
+                    <IconView><MdOutlineAccountBalanceWallet /></IconView>  
+                </MenuItem>
             </MenuView>
 
-            <IconView>
-                <WalletIcon />
-            </IconView>
         </TopHeaderView>
     );
 };
@@ -53,11 +53,17 @@ const Title = styled.div`
     font-size: 24px;
     font-weight: 700;
     margin-left: 8px;
+    font-family: 'Passion One';
+    font-style: normal;
+    font-weight: 400;
 `;
 
 const SearchView = styled.div`
     flex: 1;
     margin-left: 64px;
+    border: 3px solid #E5E8EB;
+    border-radius: 12px;
+    box-shadow: 0px 5px 0px #E5E8EB;
 `;
 
 const MenuView = styled.div`
@@ -67,10 +73,24 @@ const MenuView = styled.div`
 `;
 
 const MenuItem = styled.div`
-    padding: 0 16px;
+    display: flex;
+    padding: 15px 20px;
     font-weight: 700;
+    color: #8A939B;
+    align-items: center;
+    height: 62px;
+    border: 3px solid #E5E8EB;
+    border-radius: 12px;
+    box-shadow: 0px 5px 0px #E5E8EB;
+    cursor: pointer;
 `;
 
 const IconView = styled.div`
-    margin-left: 32px;
+    display: flex;
+    border: 3px solid #E5E8EB;
+    border-radius: 12px;
+    padding: 3px;
+    margin: 0px 4px 0px 28px;
+    background-color: #E5E8EB;
+    font-size: x-large;
 `;
