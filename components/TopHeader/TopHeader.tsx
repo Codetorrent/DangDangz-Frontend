@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { Autocomplete, TextField } from "@mui/material";
 import Image from "next/image";
 import React from "react";
-import { MdOutlineAccountBalanceWallet } from 'react-icons/md'
+import { MdOutlineAccountBalanceWallet, MdOutlineShoppingCart } from 'react-icons/md'
 
 
 const TopHeader = () => {
@@ -32,7 +32,10 @@ const TopHeader = () => {
             <MenuView>
                 <MenuItem>
                     Connect wallet 
-                    <IconView><MdOutlineAccountBalanceWallet /></IconView>  
+                    <IconView style={{ marginLeft: "28px" }}><MdOutlineAccountBalanceWallet /></IconView>  
+                </MenuItem>
+                <MenuItem>
+                    <IconView><MdOutlineShoppingCart /></IconView>  
                 </MenuItem>
             </MenuView>
 
@@ -69,13 +72,14 @@ const SearchView = styled.div`
 const MenuView = styled.div`
     display: flex;
     flex-direction: row;
-    margin-left: 64px;
+    margin-left: 20px;
 `;
 
 const MenuItem = styled.div`
     display: flex;
-    padding: 15px 20px;
-    font-weight: 700;
+    padding: 10px;
+    margin: 0px 4px;
+    font-weight: 400;
     color: #8A939B;
     align-items: center;
     height: 62px;
@@ -90,7 +94,6 @@ const IconView = styled.div`
     border: 3px solid #E5E8EB;
     border-radius: 12px;
     padding: 3px;
-    margin: 0px 4px 0px 28px;
     background-color: #E5E8EB;
     font-size: x-large;
 `;
