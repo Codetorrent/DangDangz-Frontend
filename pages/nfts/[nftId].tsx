@@ -1,21 +1,20 @@
 import React from 'react'
-import { useRouter } from 'next/router';
-import { TopHeader, Footer } from '../../components';
-import { NftView } from '../../components';
+import { TopHeader,
+  Footer,
+  NftView,
+  FavoriteItems,
+ } from '../../components';
 
 const Nft = () => {
-
-
   return (
     <>
       <TopHeader />
 
       <NftView />
+      <FavoriteItems />
 
       <Footer />
     </>
-
-  
   )
 }
 
