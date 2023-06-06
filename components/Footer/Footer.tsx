@@ -30,33 +30,33 @@ const Footer = () => {
                     <LogoView>
                         <Image src={"/dangdangz-logo.png"} alt="dangdangz logo" width={40} height={40} style={{transform: 'rotate(180deg)'}} />
                     </LogoView>
-                    <TitleDiv>
+                    <FooterScript>
                         DangDangz
-                    </TitleDiv>
+                    </FooterScript>
                     The world’s first and largest digital marketplace for crypto collectibles and non-fungible tokens (NFTs). Buy, sell, and discover exclusive digital items.
                 </DescriptionView>
                 <QuickMenu>
                     <QuickMenuItem>
-                        <TitleDiv>
+                        <FooterScript>
                             Marketplace
-                        </TitleDiv>
+                        </FooterScript>
                         All NFTs <br />
                         Art <br />
                         Gaming <br />
                     </QuickMenuItem>
                     <QuickMenuItem>
-                        <TitleDiv>
+                        <FooterScript>
                         My Account
-                        </TitleDiv>
+                        </FooterScript>
                         Profile <br />
                         Favorites <br />
                         Watchlist <br />
                         My Collection <br />
                     </QuickMenuItem>
                     <QuickMenuItem>
-                        <TitleDiv>
+                        <FooterScript>
                         Resources
-                        </TitleDiv>
+                        </FooterScript>
                         Learn <br />
                         Help Center <br />
                         Platform Status <br />
@@ -64,9 +64,9 @@ const Footer = () => {
                         Taxes <br />
                     </QuickMenuItem>
                     <QuickMenuItem>
-                        <TitleDiv>
+                        <FooterScript>
                             Company
-                        </TitleDiv>
+                        </FooterScript>
                         About <br />
                         Careers <br />
                         Ventures <br />
@@ -129,7 +129,7 @@ const DescriptionView = styled.div`
     margin: 20px 40px 0px 20px;
 `;
 
-const TitleDiv = styled.div`
+const FooterScript = styled.div`
     font-weight: 600;
     margin-bottom: 20px;
 `;

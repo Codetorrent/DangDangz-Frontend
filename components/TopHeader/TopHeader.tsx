@@ -12,7 +12,7 @@ const TopHeader = () => {
             <LogoView>
                 <Image src={"/dangdangz-logo.png"} alt="logo" width={40} height={40} style={{transform: 'rotate(180deg)', position: 'relative', top: '4px'}} />
             </LogoView>
-            <Title>DangDangz</Title>
+            <LogoTitle>DangDangz</LogoTitle>
             <SearchView>
                 {/* 자동완성로직 */}
                 <Autocomplete
@@ -64,7 +64,7 @@ const TopHeaderView = styled.div`
     align-items: center;
 `;
 
-const Title = styled.div`
+const LogoTitle = styled.div`
     font-size: 24px;
     font-weight: 700;
     margin-left: 8px;

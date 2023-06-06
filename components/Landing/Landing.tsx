@@ -7,7 +7,7 @@ import CollectionRank from './CollectionRank';
 const Landing = () => {
   return (
     <LandingWrapper>
-            <Title>Choose your puppy</Title>
+            <LandingTitle>Choose your puppy</LandingTitle>
         <PuppiesView />
         <CollectionRank />
     </LandingWrapper>
@@ -20,7 +20,7 @@ const LandingWrapper = styled.div`
 `;
 
 
-const Title = styled.div`
+const LandingTitle = styled.div`
     text-align: center;
     font-family: poppins;
     font-size: 40px;
@@ -28,13 +28,6 @@ const Title = styled.div`
     
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     `;
-
-
-    
-
-const CollectionListView = styled.div`
-    display: flex;
-`;
 
 
 export default Landing

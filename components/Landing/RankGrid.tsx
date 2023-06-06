@@ -7,16 +7,16 @@ function FormTitle() {
   return (
     <Grid container item xs={5.5}>
       <Grid item xs={0.8}>
-        <GridTitle></GridTitle>
+        <TitleGrid></TitleGrid>
       </Grid>
       <Grid item xs={2}>
-        <GridTitle>COLLECTION</GridTitle>
+        <TitleGrid>COLLECTION</TitleGrid>
       </Grid>
       <Grid item xs={4}>
-        <GridTitle></GridTitle>
+        <TitleGrid></TitleGrid>
       </Grid>
       <Grid item xs={4}>
-        <GridTitle style={{textAlign: 'right'}}>VOLUME</GridTitle>
+        <TitleGrid style={{textAlign: 'right'}}>VOLUME</TitleGrid>
       </Grid>
       <Grid item xs={1}>
       </Grid>
@@ -77,7 +77,7 @@ const RankGrid = ({...props}) => {
 
 
 
-const GridTitle = styled.div`
+const TitleGrid = styled.div`
   height: 25px;
   line-height: 25px;
   text-align: center;
@@ -85,7 +85,7 @@ const GridTitle = styled.div`
   color: #707A83;
 `;
 const StyledGrid = styled(Grid)`
-  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
   border-radius: 30px;
   font-weight: 600;
 `;
