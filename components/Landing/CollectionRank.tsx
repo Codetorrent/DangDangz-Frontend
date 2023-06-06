@@ -11,6 +11,9 @@ const  CollectionRank = () => {
     setValue(newValue);
   };
 
+  const dangdangzLogo = '/dangdangz-logo.png'
+  const shibaInuLogo = '/shiba-inu.png'
+  
   return (
     <Box sx={{ width: '100%' }}>
       <Box>
@@ -25,11 +28,11 @@ const  CollectionRank = () => {
         <Box sx={{ p: 3 }} />
       </Box>
       <TabPanel value={value} index={0}>
-        <RankGrid />
+        <RankGrid img={shibaInuLogo} />
 
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <RankGrid />
+        <RankGrid img={dangdangzLogo} />
 
       </TabPanel>
     </Box>
