@@ -38,7 +38,7 @@ function FormRow({...props}) {
       <Grid item xs={4} >
         <Item style={{textAlign: 'right'}}>5,740  ETH</Item>
       </Grid>
-      <Grid xs={1}>
+      <Grid item xs={1}>
       </Grid>
     </StyledGrid>
   );
