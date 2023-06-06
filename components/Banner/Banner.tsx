@@ -61,15 +61,6 @@ const SubTitle = styled.div`
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `;
 
-const ButtonView = styled.div`
-    margin-top: 24px;
-`;
-
-const BannerButton = styled(Button)`
-    margin-right: 16px;
-    padding: 12px 48px;
-`;
-
 const LocationPinBox = styled.div`
     position: absolute;
     width: 172px;

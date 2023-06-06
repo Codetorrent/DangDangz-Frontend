@@ -1,6 +1,42 @@
 import * as React from 'react'
 import styled from "@emotion/styled";
-import {Tabs, Tab, Box, Typography } from '@mui/material';
+import {Tabs, Tab, Box } from '@mui/material';
+import RankGrid from './RankGrid';
+
+
+const  CollectionRank = () => {
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+    setValue(newValue);
+  };
+
+  return (
+    <Box sx={{ width: '100%' }}>
+      <Box>
+        <StyledTabs
+          value={value}
+          onChange={handleChange}
+          aria-label="styled tabs example"
+        >
+          <StyledTab label="PUPPY" />
+          <StyledTab label="ETC.." />
+        </StyledTabs>
+        <Box sx={{ p: 3 }} />
+      </Box>
+      <TabPanel value={value} index={0}>
+        <RankGrid />
+
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+        <RankGrid />
+
+      </TabPanel>
+    </Box>
+  );
+}
+
+
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -21,7 +57,7 @@ function TabPanel(props: TabPanelProps) {
     >
       {value === index && (
         <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
+          {children}
         </Box>
       )}
     </div>
@@ -74,37 +110,7 @@ const StyledTab = styled((props: StyledTabProps) => (
   },
 }));
 
-export default function CustomizedTabs() {
-  const [value, setValue] = React.useState(0);
-
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    setValue(newValue);
-  };
-
-  return (
-    <Box sx={{ width: '100%' }}>
-      <Box>
-        <StyledTabs
-          value={value}
-          onChange={handleChange}
-          aria-label="styled tabs example"
-        >
-          <StyledTab label="PUPPY" />
-          <StyledTab label="ETC.." />
-        </StyledTabs>
-        <Box sx={{ p: 3 }} />
-      </Box>
-      <TabPanel value={value} index={0}>
-        Item One
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        Item Two
-      </TabPanel>
-    </Box>
-  );
-}
 
 
-
-// export default CollectionRank
+export default CollectionRank
 
