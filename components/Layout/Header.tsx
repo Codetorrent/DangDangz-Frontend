@@ -19,12 +19,12 @@ const Header = () => {
     return (
         <HeaderView>
             {/* svg 파일 첫 글자 대문자 안됨 */}
-            <LogoBox onClick={onClickLogo}>
-                <LogoView>
+            <LogoView onClick={onClickLogo}>
+                <LogoBox>
                     <Image src={"/img/dangdangz-logo.png"} alt="logo" width={40} height={40} style={{transform: 'rotate(180deg)', position: 'relative', top: '4px'}} />
-                </LogoView>
+                </LogoBox>
                 <LogoTitle>DangDangz</LogoTitle>
-            </LogoBox>
+            </LogoView>
             
             <SearchView>
                 {/* 자동완성로직 */}
@@ -58,24 +58,6 @@ const Header = () => {
     );
 };
 
-const LogoBox = styled.div`
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-`;
-
-const LogoView = styled.div`
-    display: flex;
-    justify-content: center;
-    width: 45px;
-    height: 45px;
-    padding: 0px 5px 0px;
-    border-radius: 50%;
-    box-shadow: 0px 5px 5px #aeabab;
-`;
-
 const HeaderView = styled.div`
     padding: 16px 32px;
     display: flex;
@@ -83,18 +65,35 @@ const HeaderView = styled.div`
     align-items: center;
 `;
 
+const LogoView = styled.div`
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+`;
+
+const LogoBox = styled.div`
+    display: flex;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    box-shadow: 0px 5px 5px #aeabab;
+`;
+
+
+
 const LogoTitle = styled.div`
     font-size: 24px;
-    font-weight: 700;
     margin-left: 8px;
     font-family: 'Passion One';
     font-style: normal;
-    font-weight: 400;
 `;
 
 const SearchView = styled.div`
     flex: 1;
-    margin-left: 64px;
+    margin-left: 4vw;
     border: 3px solid #E5E8EB;
     border-radius: 12px;
     box-shadow: 0px 5px 0px #E5E8EB;
@@ -103,14 +102,13 @@ const SearchView = styled.div`
 const MenuView = styled.div`
     display: flex;
     flex-direction: row;
-    margin-left: 20px;
+    margin-left: 2vw;
 `;
 
 const MenuItem = styled.div`
     display: flex;
     padding: 10px;
     margin: 0px 4px;
-    font-weight: 400;
     color: #8A939B;
     align-items: center;
     height: 62px;
