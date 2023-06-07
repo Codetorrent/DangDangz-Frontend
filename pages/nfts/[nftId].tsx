@@ -1,6 +1,5 @@
 import React from 'react'
-import { TopHeader,
-  Footer,
+import { 
   NftView,
   FavoriteItems,
  } from '../../components';
@@ -8,12 +7,8 @@ import { TopHeader,
 const Nft = () => {
   return (
     <>
-      <TopHeader />
-
       <NftView />
       <FavoriteItems />
-
-      <Footer />
     </>
   )
 }
