@@ -5,40 +5,40 @@ import Image from 'next/image';
 
 function FormTitle() {
   return (
-    <Grid container item xs={5.5}>
-      <Grid item xs={0.8}>
+    <Grid container item xs={5.5} md={5.5}>
+      <Grid item md={0.8}>
         <TitleGrid></TitleGrid>
       </Grid>
-      <Grid item xs={2}>
+      <Grid item md={2}>
         <TitleGrid>COLLECTION</TitleGrid>
       </Grid>
-      <Grid item xs={4}>
+      <Grid item md={4}>
         <TitleGrid></TitleGrid>
       </Grid>
-      <Grid item xs={4}>
+      <Grid item md={4}>
         <TitleGrid style={{textAlign: 'right'}}>VOLUME</TitleGrid>
       </Grid>
-      <Grid item xs={1}>
+      <Grid item md={1}>
       </Grid>
     </Grid>
   );
 }
 function FormRow({...props}) {
   return (
-    <StyledGrid container item xs={5.5}>
-      <Grid item xs={0.8}>
+    <StyledGrid container item xs={4} md={5.5}>
+      <Grid item md={0.8}>
         <Item style={{ color: "#707A83"}}>{props.num}</Item>
       </Grid>
-      <Grid item xs={2}>
+      <Grid item md={2}>
         <ImageBox ><Image src={props.img} alt='logo' width={50} height={50} style={{marginTop: '10px'}} /></ImageBox>
       </Grid>
-      <Grid item xs={4}>
+      <Grid item md={4}>
         <Item>GitCoinProject</Item>
       </Grid>
-      <Grid item xs={4} >
+      <Grid item md={4} >
         <Item style={{textAlign: 'right'}}>5,740  ETH</Item>
       </Grid>
-      <Grid item xs={1}>
+      <Grid item md={1}>
       </Grid>
     </StyledGrid>
   );

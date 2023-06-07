@@ -87,7 +87,7 @@ const FooterWrapper = styled.div`
     height: 450px;
     background: #258327;
     color: #fff;
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 768px) {
         height: auto;
     }
 `;
@@ -116,7 +116,7 @@ const CommunityIcons = styled.div`
 const BottomView = styled.div`
     display: flex;
     flex-direction: row;
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 768px) {
         display: block;
     }
 `;
@@ -138,7 +138,7 @@ const DescriptionView = styled.div`
     flex-direction: column;
     flex-basis: 20%;
     margin: 20px 40px 0px 20px;
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 768px) {
         flex-basis: 200%;
     }
 `;
@@ -165,7 +165,7 @@ const QuickMenu = styled.div`
     flex-basis: 80%;
     margin: 30px 0px 0px 0px;
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 768px) {
         flex-wrap: wrap;
     }
 `;
@@ -175,7 +175,7 @@ const QuickMenuItem = styled.div`
     margin: 1vh 2vw;
     line-height: 30px;
     font-size: 14px;
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 768px) {
         flex-basis: 40%;
     }
 `;

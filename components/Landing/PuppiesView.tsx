@@ -34,9 +34,9 @@ const PuppiesView = () => {
 
   return (
     <PuppyWrapper>
-    <PuppyCard />
-    <PuppyCard />
-    <PuppyCard />
+        <PuppyCard />
+        <PuppyCard />
+        <PuppyCard />
     </PuppyWrapper>
   )
 }
@@ -44,14 +44,19 @@ const PuppiesView = () => {
 const PuppyWrapper = styled.div`
     display: flex;
     justify-content: space-around;
-    margin : 40px 0px ;
+    margin : 40px 0px;
+
+    @media screen and (max-width: 768px) {
+        overflow: hidden;
+        width: 100vw;
+    }
 `;
 
 const CardView = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0px 0px 16px;
+    margin: 0px 3px 16px;
     gap: 16px;
 
     width: 357px;
