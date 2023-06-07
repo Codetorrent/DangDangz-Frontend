@@ -1,18 +1,31 @@
 import styled from "@emotion/styled";
 import { Autocomplete, TextField } from "@mui/material";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 import { MdOutlineAccountBalanceWallet, MdOutlineShoppingCart } from 'react-icons/md'
+import {useRouter} from "next/router";
 
 
 const Header = () => {
+    const router = useRouter();
+
+    const onClickLogo = () => {
+        router.push('/')
+    }
+    // useEffect(() => {
+    //     router.prefetch('/');
+    //   }, [router]);
+
     return (
         <HeaderView>
             {/* svg 파일 첫 글자 대문자 안됨 */}
-            <LogoView>
-                <Image src={"/dangdangz-logo.png"} alt="logo" width={40} height={40} style={{transform: 'rotate(180deg)', position: 'relative', top: '4px'}} />
-            </LogoView>
-            <LogoTitle>DangDangz</LogoTitle>
+            <LogoBox onClick={onClickLogo}>
+                <LogoView>
+                    <Image src={"/img/dangdangz-logo.png"} alt="logo" width={40} height={40} style={{transform: 'rotate(180deg)', position: 'relative', top: '4px'}} />
+                </LogoView>
+                <LogoTitle>DangDangz</LogoTitle>
+            </LogoBox>
+            
             <SearchView>
                 {/* 자동완성로직 */}
                 <Autocomplete
@@ -45,6 +58,13 @@ const Header = () => {
     );
 };
 
+const LogoBox = styled.div`
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+`;
 
 const LogoView = styled.div`
     display: flex;

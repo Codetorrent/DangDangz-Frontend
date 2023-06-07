@@ -39,7 +39,7 @@ function FormRow({...props}) {
         <Item >5,740  ETH</Item>
       </Grid>
       <Grid item xs={6}>
-      <Item style={{textAlign: 'start'}} >fdfdsfdsfdsnjdshfkjsdnfkdsndfdsfdsfsdfh sdkfdskjfhkj sdfksd hfkaaaaaaaaa aaaaaaaaaaaaaaaa aaaaaaaaaaa aaa</Item>
+      <Item style={{textAlign: 'start'}} >mind wanders in search of inspiration. Drawn by the emotional component of shapes</Item>
       </Grid>
     </StyledGrid>
   );
