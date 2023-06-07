@@ -10,8 +10,9 @@ const Home: NextPage = () => {
     return (
         <div>
             <TopHeader />
-            <Banner />
+            <Banner backgroundImage="/banner/upper-banner.png"  />
             <Landing />
+            <Banner backgroundImage="/banner/lower-banner.png"  />
             <Footer />
         </div>
     );

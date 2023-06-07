@@ -57,9 +57,9 @@ const FavoriteItems = () => {
           <FormTitle />
         </Grid>
         <Grid container item spacing={3} style={{justifyContent: 'center', alignItems: 'center'}}>
-          <FormRow num="1" img={'/dating-place.png'} />
-          <FormRow num="2" img={'/stopwatch.png'} />
-          <FormRow num="3" img={'/vision.png'} />
+          <FormRow num="1" img={'/img/dating-place.png'} />
+          <FormRow num="2" img={'/img/stopwatch.png'} />
+          <FormRow num="3" img={'/img/vision.png'} />
         </Grid>
       </Grid>
     </Box>

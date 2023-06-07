@@ -69,7 +69,7 @@ const CardInuBox = styled.div`
 
     width: 357px;
     height: 220.5px;
-    background-image: url(/shiba-inu.png);
+    background-image: url(/img/shiba-inu.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

@@ -17,7 +17,7 @@ const router = useRouter()
     <Grid container justifyContent='center' alignItems='center' height="400px" spacing={5}>
       {/* Image */}
       <Grid item xs= {3} >
-        <Item ><Image src={'/shiba-inu.png'} alt="nft" width={200} height={310} /></Item>
+        <Item ><Image src={'/img/shiba-inu.png'} alt="nft" width={200} height={310} /></Item>
         {/* <Image src={`/images/nft/${router.query.nftId}.png`} alt="nft" width={400} height={400} /> */}
       </Grid>
     {/* MetaData */}

@@ -11,8 +11,8 @@ const  CollectionRank = () => {
     setValue(newValue);
   };
 
-  const dangdangzLogo = '/dangdangz-logo.png'
-  const shibaInuLogo = '/shiba-inu.png'
+  const dangdangzLogo = '/img/dangdangz-logo.png'
+  const shibaInuLogo = '/img/shiba-inu.png'
   
   return (
     <Box sx={{ width: '100%' }}>
