@@ -5,9 +5,9 @@ import React from "react";
 import { MdOutlineAccountBalanceWallet, MdOutlineShoppingCart } from 'react-icons/md'
 
 
-const TopHeader = () => {
+const Header = () => {
     return (
-        <TopHeaderView>
+        <HeaderView>
             {/* svg 파일 첫 글자 대문자 안됨 */}
             <LogoView>
                 <Image src={"/dangdangz-logo.png"} alt="logo" width={40} height={40} style={{transform: 'rotate(180deg)', position: 'relative', top: '4px'}} />
@@ -41,11 +41,10 @@ const TopHeader = () => {
                 </MenuItem>
             </MenuView>
 
-        </TopHeaderView>
+        </HeaderView>
     );
 };
 
-export default TopHeader;
 
 const LogoView = styled.div`
     display: flex;
@@ -57,7 +56,7 @@ const LogoView = styled.div`
     box-shadow: 0px 5px 5px #aeabab;
 `;
 
-const TopHeaderView = styled.div`
+const HeaderView = styled.div`
     padding: 16px 32px;
     display: flex;
     flex-direction: row;
@@ -109,3 +108,5 @@ const IconView = styled.div`
     background-color: #E5E8EB;
     font-size: x-large;
 `;
+
+export default Header;

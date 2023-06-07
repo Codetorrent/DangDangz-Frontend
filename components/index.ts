@@ -1,5 +1,4 @@
 export * from './Banner'
-export * from './TopHeader'
 export * from './Landing'
-export * from './Footer'
 export * from './Nft'
+export * from './Layout'
