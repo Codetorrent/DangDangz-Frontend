@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { Autocomplete, TextField } from "@mui/material";
 import Image from "next/image";
 import React, { useEffect } from "react";
-import { MdOutlineAccountBalanceWallet, MdOutlineShoppingCart } from 'react-icons/md'
+import { MdOutlineAccountBalanceWallet, MdOutlineSearch } from 'react-icons/md'
 import {useRouter} from "next/router";
 
 
@@ -45,12 +45,12 @@ const Header = () => {
             </SearchView>
 
             <MenuView>
-                <MenuItem>
-                    Connect wallet 
-                    <IconView style={{ marginLeft: "28px" }}><MdOutlineAccountBalanceWallet /></IconView>  
+                <MenuItem className="">
+                    <IconView><MdOutlineSearch /></IconView>  
                 </MenuItem>
                 <MenuItem>
-                    <IconView><MdOutlineShoppingCart /></IconView>  
+                    Connect wallet 
+                    <IconView style={{ marginLeft: "1vw" }}><MdOutlineAccountBalanceWallet /></IconView>  
                 </MenuItem>
             </MenuView>
 
@@ -59,10 +59,12 @@ const Header = () => {
 };
 
 const HeaderView = styled.div`
-    padding: 16px 32px;
+    padding: 2vw 4vw;
     display: flex;
     flex-direction: row;
     align-items: center;
+
+    
 `;
 
 const LogoView = styled.div`
@@ -71,6 +73,7 @@ const LogoView = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    margin-right: 4vw;
 `;
 
 const LogoBox = styled.div`
@@ -82,8 +85,6 @@ const LogoBox = styled.div`
     box-shadow: 0px 5px 5px #aeabab;
 `;
 
-
-
 const LogoTitle = styled.div`
     font-size: 24px;
     margin-left: 8px;
@@ -93,16 +94,17 @@ const LogoTitle = styled.div`
 
 const SearchView = styled.div`
     flex: 1;
-    margin-left: 4vw;
     border: 3px solid #E5E8EB;
     border-radius: 12px;
     box-shadow: 0px 5px 0px #E5E8EB;
+    @media screen and (max-width: 768px) {
+        display: none;
+    }
 `;
 
 const MenuView = styled.div`
     display: flex;
     flex-direction: row;
-    margin-left: 2vw;
 `;
 
 const MenuItem = styled.div`
@@ -111,7 +113,6 @@ const MenuItem = styled.div`
     margin: 0px 4px;
     color: #8A939B;
     align-items: center;
-    height: 62px;
     border: 3px solid #E5E8EB;
     border-radius: 12px;
     box-shadow: 0px 5px 0px #E5E8EB;
