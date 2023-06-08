@@ -55,7 +55,7 @@ const Header = () => {
             <LogoView onClick={onClickLogo}>
                 <LogoBox>
                     <Image
-                        src={"/dangdangz-logo.png"}
+                        src={"/img/dangdangz-logo.png"}
                         alt="logo"
                         width={40}
                         height={40}
@@ -88,11 +88,11 @@ const Header = () => {
             </SearchView>
 
             <MenuView>
-                <MenuItem>
+                {/* <MenuItem>
                     <IconView>
                         <MdOutlineSearch />
                     </IconView>
-                </MenuItem>
+                </MenuItem> */}
                 <MenuItem onClick={walletConnect}>
                     Connect wallet 
                     <IconView style={{ marginLeft: "1vw" }}>
