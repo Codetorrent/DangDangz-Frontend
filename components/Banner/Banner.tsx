@@ -1,9 +1,12 @@
 import styled from "@emotion/styled";
+import Image from "next/image";
 import React from "react";
 
 const Banner = ({...props}) => {
     return (
-        <BannerWrapper style={{ backgroundImage: `url(${props.backgroundImage})` }} />
+        <BannerWrapper style={{ backgroundImage: `url(${props.backgroundImage})` }} >
+            {/* <Image src={props.backgroundImage} alt="banner" width={500} height={500} />  */}
+        </BannerWrapper>
     );
 };
 
