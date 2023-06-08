@@ -1,11 +1,12 @@
 import styled from "@emotion/styled";
 import { Autocomplete, TextField } from "@mui/material";
 import Image from "next/image";
-import React, { useState } from "react";
-import {
-    MdOutlineAccountBalanceWallet,
-    MdOutlineShoppingCart,
-} from "react-icons/md";
+import React, { useState, useEffect } from "react";
+import { 
+    MdOutlineAccountBalanceWallet, 
+    MdOutlineSearch }
+from 'react-icons/md'
+import {useRouter} from "next/router";
 
 declare global {
     interface Window {
@@ -38,24 +39,36 @@ const Header = () => {
             setUserAccount("");
         }
     };
+    
+    const router = useRouter();
+
+    const onClickLogo = () => {
+        router.push('/')
+    }
+    // useEffect(() => {
+    //     router.prefetch('/');
+    //   }, [router]);
 
     return (
         <HeaderView>
             {/* svg 파일 첫 글자 대문자 안됨 */}
-            <LogoView>
-                <Image
-                    src={"/dangdangz-logo.png"}
-                    alt="logo"
-                    width={40}
-                    height={40}
-                    style={{
-                        transform: "rotate(180deg)",
-                        position: "relative",
-                        top: "4px",
-                    }}
-                />
+            <LogoView onClick={onClickLogo}>
+                <LogoBox>
+                    <Image
+                        src={"/dangdangz-logo.png"}
+                        alt="logo"
+                        width={40}
+                        height={40}
+                        style={{
+                            transform: "rotate(180deg)",
+                            position: "relative",
+                            top: "4px",
+                        }}
+                    />
+                </LogoBox>
+                <LogoTitle>DangDangz</LogoTitle>
             </LogoView>
-            <LogoTitle>DangDangz</LogoTitle>
+            
             <SearchView>
                 {/* 자동완성로직 */}
                 <Autocomplete
@@ -75,71 +88,76 @@ const Header = () => {
             </SearchView>
 
             <MenuView>
-                <MenuItem onClick={walletConnect}>
-                    Connect wallet
-                    <IconView style={{ marginLeft: "28px" }}>
-                        <MdOutlineAccountBalanceWallet />
-                    </IconView>
-                </MenuItem>
                 <MenuItem>
                     <IconView>
-                        <MdOutlineShoppingCart />
+                        <MdOutlineSearch />
                     </IconView>
+                </MenuItem>
+                <MenuItem onClick={walletConnect}>
+                    Connect wallet 
+                    <IconView style={{ marginLeft: "1vw" }}>
+                        <MdOutlineAccountBalanceWallet />
+                    </IconView>  
                 </MenuItem>
             </MenuView>
         </HeaderView>
     );
 };
 
-const LogoView = styled.div`
-    display: flex;
-    justify-content: center;
-    width: 45px;
-    height: 45px;
-    padding: 0px 5px 0px;
-    border-radius: 50%;
-    box-shadow: 0px 5px 5px #aeabab;
-`;
-
 const HeaderView = styled.div`
-    padding: 16px 32px;
+    padding: 2vw 4vw;
     display: flex;
     flex-direction: row;
     align-items: center;
 `;
 
+const LogoView = styled.div`
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-right: 4vw;
+`;
+
+const LogoBox = styled.div`
+    display: flex;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    box-shadow: 0px 5px 5px #aeabab;
+`;
+
 const LogoTitle = styled.div`
     font-size: 24px;
-    font-weight: 700;
     margin-left: 8px;
     font-family: "Passion One";
     font-style: normal;
-    font-weight: 400;
 `;
 
 const SearchView = styled.div`
     flex: 1;
-    margin-left: 64px;
-    border: 3px solid #e5e8eb;
+    border: 3px solid #E5E8EB;
     border-radius: 12px;
-    box-shadow: 0px 5px 0px #e5e8eb;
+    box-shadow: 0px 5px 0px #E5E8EB;
+    @media screen and (max-width: 768px) {
+        display: none;
+    }
 `;
 
 const MenuView = styled.div`
     display: flex;
     flex-direction: row;
-    margin-left: 20px;
 `;
 
 const MenuItem = styled.div`
     display: flex;
     padding: 10px;
     margin: 0px 4px;
-    font-weight: 400;
-    color: #8a939b;
+    color: #8A939B;
     align-items: center;
-    height: 62px;
-    border: 3px solid #e5e8eb;
+    border: 3px solid #E5E8EB;
     border-radius: 12px;
     box-shadow: 0px 5px 0px #e5e8eb;
     cursor: pointer;

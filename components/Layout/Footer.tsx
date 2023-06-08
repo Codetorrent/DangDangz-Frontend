@@ -25,10 +25,10 @@ const Footer = () => {
                 </CommunityIcons>
             </CommunityView>
             <hr style={{  border : '1px solid #04B154', width: '100%',  opacity: 0.4}} /> 
-            <div style={{display: 'flex', flexDirection: 'row'}}>
+            <BottomView>
                 <DescriptionView>
                     <LogoView>
-                        <Image src={"/dangdangz-logo.png"} alt="dangdangz logo" width={40} height={40} style={{transform: 'rotate(180deg)'}} />
+                        <Image src={"/img/dangdangz-logo.png"} alt="dangdangz logo" width={40} height={40} style={{transform: 'rotate(180deg)'}} />
                     </LogoView>
                     <FooterScript>
                         DangDangz
@@ -73,7 +73,7 @@ const Footer = () => {
                         Grants <br />
                     </QuickMenuItem>
                 </QuickMenu>
-            </div>
+            </BottomView>
             
         </FooterView>
     </FooterWrapper>
@@ -87,6 +87,9 @@ const FooterWrapper = styled.div`
     height: 450px;
     background: #258327;
     color: #fff;
+    @media screen and (max-width: 768px) {
+        height: auto;
+    }
 `;
 
 const FooterView = styled.div`
@@ -110,6 +113,14 @@ const CommunityIcons = styled.div`
     flex-direction: row;
 `;
 
+const BottomView = styled.div`
+    display: flex;
+    flex-direction: row;
+    @media screen and (max-width: 768px) {
+        display: block;
+    }
+`;
+
 const IconView = styled.div`
     cursor: pointer;
     width: 54px;
@@ -125,8 +136,11 @@ const IconView = styled.div`
 const DescriptionView = styled.div`
     display: flex;
     flex-direction: column;
-    width: 300px;
+    flex-basis: 20%;
     margin: 20px 40px 0px 20px;
+    @media screen and (max-width: 768px) {
+        flex-basis: 200%;
+    }
 `;
 
 const FooterScript = styled.div`
@@ -148,14 +162,22 @@ const LogoView = styled.div`
 const QuickMenu = styled.div`
     display: flex;
     flex-direction: row;
-    margin: 30px 40px 0px 40px;
+    flex-basis: 80%;
+    margin: 30px 0px 0px 0px;
+
+    @media screen and (max-width: 768px) {
+        flex-wrap: wrap;
+    }
 `;
 
 const QuickMenuItem = styled.div`
-    width: 200px;
-    margin: 10px 40px 0px 40px;
+    flex-basis: 20%;
+    margin: 1vh 2vw;
     line-height: 30px;
     font-size: 14px;
+    @media screen and (max-width: 768px) {
+        flex-basis: 40%;
+    }
 `;
 
 export default Footer
