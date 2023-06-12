@@ -13,7 +13,7 @@ import { useGLTF } from "@react-three/drei";
 export default function Model(props) {
     const { nodes, materials } = useGLTF("/dog.glb");
     return (
-        <group {...props} dispose={null} scale={4}>
+        <group {...props} dispose={null} scale={2}>
             <group rotation={[-Math.PI / 2, 0, 0]} scale={0.849}>
                 <group rotation={[Math.PI / 2, 0, 0]}>
                     <group position={[-0.3, 0.09, 0]} scale={0.526}>

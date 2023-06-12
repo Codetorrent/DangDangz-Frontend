@@ -11,9 +11,9 @@ const Container = styled.div`
     text-align: center;
     
     /* background-image: url(./../../public/banner/upper-banner.png); */
-    background-position: center;
+    /* background-position: center; */
 
-    background-color: #f1f1f1;
+    /* background-color: #f1f1f1; */
 `
 
 const Header = styled.div`
