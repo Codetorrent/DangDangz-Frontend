@@ -13,6 +13,7 @@ function Wallet() {
 
   const [provider, setProvider] = useState<ethers.providers.Web3Provider>();
   const [contract, setContract] = useState<ethers.Contract>();
+  const [signerAddress, setSignerAddress] = useState();
 
   const router = useRouter();
 
@@ -35,14 +36,15 @@ function Wallet() {
       const provider = await new ethers.providers.Web3Provider(window.ethereum);
       setProvider(provider);
       const walletAddress = await provider.send('eth_requestAccounts', []);
+      setSignerAddress(walletAddress[0]);
       console.log('connected to ', walletAddress);
 
       // 컨트랙트 인스턴스화
-      const contract = new ethers.Contract('0xB74b07A09826318F7a3F1c12e13A9806B0e28AF3', abi, provider);
+      const contract = new ethers.Contract('0x3D28186fE2357FC0beE71CDa6751e9dE951d36f8', abi, provider);
       setContract(contract);
 
       // MetaMask 연결 성공 후 Footer로 이동
-      router.push('/Router');
+      // router.push('/Router');
     } else {
       alert('please install MetaMask');
     }
@@ -56,7 +58,7 @@ function Wallet() {
     // 컨트랙트와 연결된 지갑 결합(?), mint함수 호출
     const signer: any = provider?.getSigner();
     const contractWithSigner = contract?.connect(signer);
-    contractWithSigner?.mint();
+    contractWithSigner?.mint(signerAddress);
 
     // 랜덤값 생성 후 ipfs에 올리기, 매핑할 uri 생성
     const res = await fetch('https://ipfs.io/ipfs/bafkreiek7daymoyvhmr2qdync5s65oe4gthbeuzbshsszee6dhoz4xr2i4');
