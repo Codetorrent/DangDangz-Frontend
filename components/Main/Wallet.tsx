@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
-// import { useConnect, metamaskWallet } from "@thirdweb-dev/react";
-
-// const metamaskConfig = metamaskWallet();
 
 declare global {
     interface Window {
@@ -14,6 +11,7 @@ declare global {
 
 function Wallet() {
     const [userAccount, setUserAccount] = useState<string | undefined>();
+    const router = useRouter();
 
     const walletConnect = async () => {
         if (window.ethereum) {
@@ -23,6 +21,8 @@ function Wallet() {
                 });
                 if (accounts.length > 0) {
                     setUserAccount(accounts[0]);
+                    // MetaMask 연결 성공 후 Footer로 이동
+                    router.push("/Router");
                 } else {
                     setUserAccount("");
                 }

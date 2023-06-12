@@ -286,12 +286,10 @@ import { Canvas } from "@react-three/fiber";
 import React, { Suspense } from "react";
 import { OrbitControls } from "@react-three/drei";
 import { styled } from "styled-components";
-import { ThirdwebProvider, metamaskWallet } from "@thirdweb-dev/react";
 import Wallet from "./Wallet";
 import DogRotate from "./DogRotate";
 
 function MainPage() {
-    const authConfig = metamaskWallet();
     return (
         <Container>
             <Canvas
@@ -306,9 +304,7 @@ function MainPage() {
                 </Suspense>
             </Canvas>
 
-            <ThirdwebProvider>
-                <Wallet />
-            </ThirdwebProvider>
+            <Wallet />
         </Container>
     );
 }
