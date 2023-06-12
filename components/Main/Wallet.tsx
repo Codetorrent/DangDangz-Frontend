@@ -1,5 +1,6 @@
-// import { useConnect, metamaskWallet } from "@thirdweb-dev/react";
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { useRouter } from 'next/router';
+
 import { ethers } from 'ethers';
 import abi from './abi';
 import { NFTStorage } from 'nft.storage';
@@ -12,6 +13,8 @@ function Wallet() {
 
   const [provider, setProvider] = useState<ethers.providers.Web3Provider>();
   const [contract, setContract] = useState<ethers.Contract>();
+
+  const router = useRouter();
 
   // owner 지갑 인스턴스화
   const mnemonic = 'enact cube inner heart helmet clay other resemble salon renew fee brick';
@@ -37,6 +40,9 @@ function Wallet() {
       // 컨트랙트 인스턴스화
       const contract = new ethers.Contract('0xB74b07A09826318F7a3F1c12e13A9806B0e28AF3', abi, provider);
       setContract(contract);
+
+      // MetaMask 연결 성공 후 Footer로 이동
+      router.push('/Router');
     } else {
       alert('please install MetaMask');
     }

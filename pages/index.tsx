@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import type { NextPage } from "next";
-import { Banner, Landing } from "../components";
 import dynamic from "next/dynamic";
 
 interface MainPageProps {
@@ -145,12 +144,6 @@ const Home: NextPage = () => {
                 setIsRunning={setIsRunning}
             />
         </div>
-        // <div>
-        //     {/* <Main /> */}
-        //     <Banner backgroundImage="/banner/upper-banner.png" />
-        //     <Landing />
-        //     <Banner backgroundImage="/banner/lower-banner.png" />
-        // </div>
     );
 };
 
