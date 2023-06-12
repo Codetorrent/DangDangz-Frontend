@@ -286,7 +286,6 @@ import { Canvas } from "@react-three/fiber";
 import React, { Suspense } from "react";
 import { OrbitControls } from "@react-three/drei";
 import { styled } from "styled-components";
-// import { Container, Header, BodyModel, Footer } from "./styles";
 import { ThirdwebProvider, metamaskWallet } from "@thirdweb-dev/react";
 import Wallet from "./Wallet";
 import DogRotate from "./DogRotate";
@@ -295,7 +294,10 @@ function MainPage() {
     const authConfig = metamaskWallet();
     return (
         <Container>
-            <Canvas className="canvas">
+            <Canvas
+                className="canvas"
+                style={{ width: "100%", height: "60vh" }}
+            >
                 <OrbitControls enableZoom={false} />
                 <ambientLight intensity={0.5} />
                 <directionalLight position={[-2, 5, 2]} intensity={1} />
