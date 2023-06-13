@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
+import { useRecoilState } from 'recoil';
+import { userAccountState } from './../../pages/_app';
+import { RecoilRoot } from 'recoil';
 import { ethers } from 'ethers';
 import abi from './abi';
-import { NFTStorage } from 'nft.storage';
 
 function Wallet() {
-    const client = new NFTStorage({
-        token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweGU1RUQ2ZjQyZDYwQUExOGM1NDgxNzI0YkZGZUM0NmM5ZTM1OThGZjMiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTY4NDQ2NzIxNzE0NCwibmFtZSI6InBhbmd5b2Vsb24ifQ.pV5R1O4NaG4UyPPTbyVIRP3HsDvUEaOuZW7cdsvDzPs',
-    });
-
     const router = useRouter();
 
     // 메마 지갑 연결
@@ -31,16 +29,51 @@ function Wallet() {
     };
 
     return (
-        <>
-            <button
-                onClick={async () => {
-                    await connectToMetaMask();
-                }}
-            >
-                Connect to MetaMask
-            </button>
-        </>
+        <RecoilRoot>
+            <div>
+                <button
+                    onClick={async () => {
+                        await connectToMetaMask();
+                    }}
+                >
+                    Join to DangDangz
+                </button>
+            </div>
+        </RecoilRoot>
     );
 }
 
 export default Wallet;
+
+// export const WALLET_CONNECT = "WALLET_CONNECT";
+// export const CONNECT_REFRESH = "CONNECT_REFRESH";
+
+// const walletConnect = (payload: string) => {
+//     return {
+//         type: WALLET_CONNECT,
+//         payload,
+//     };
+// };
+
+// const connectRefresh = (payload: string) => {
+//     return {
+//         type: CONNECT_REFRESH,
+//         payload,
+//     };
+// };
+
+// export const getAddress = () => async (dispatch) => {
+//     if (window.ethereum) {
+//         try {
+//             const addressArray = await window.ethereum.request({
+//                 method: "eth_accounts",
+//             });
+
+//             if (addressArray.length > 0) {
+//                 dispatch(connectRefresh({ account: addressArray[0] }));
+//             }
+//         } catch (error) {
+//             console.log(error);
+//         }
+//     }
+// };

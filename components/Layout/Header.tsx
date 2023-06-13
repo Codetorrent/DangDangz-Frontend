@@ -1,12 +1,11 @@
 import styled from "@emotion/styled";
 import { Autocomplete, TextField } from "@mui/material";
 import Image from "next/image";
-import React, { useState, useEffect } from "react";
-import { 
-    MdOutlineAccountBalanceWallet, 
-    MdOutlineSearch }
-from 'react-icons/md'
-import {useRouter} from "next/router";
+import React from "react";
+import { MdOutlineAccountBalanceWallet } from "react-icons/md";
+import { useRecoilValue } from "recoil";
+import { userAccountState } from "./../../pages/_app";
+import address from "./../../pages/address";
 
 declare global {
     interface Window {
@@ -17,42 +16,22 @@ declare global {
 }
 
 const Header = () => {
-    const [userAccount, setUserAccount] = useState<string | undefined>();
+    const userAccount = useRecoilValue(userAccountState);
 
-    let walletConnect = async () => {
-        if (window.ethereum) {
-            try {
-                const accounts = await window.ethereum.request({
-                    method: "eth_requestAccounts",
-                });
-                if (accounts.length > 0) {
-                    setUserAccount(accounts[0]);
-                } else {
-                    setUserAccount("");
-                }
-            } catch (error) {
-                console.error("Error connecting wallet:", error);
-                setUserAccount("");
-            }
+    const truncateAddress = (address: string) => {
+        // 주소를 원하는 길이로 제한하는 로직 구현
+        const maxLength = 12; // 원하는 최대 길이
+        if (address.length <= maxLength) {
+            return address;
         } else {
-            console.error("Ethereum provider not found");
-            setUserAccount("");
+            return `${address.slice(0, maxLength)}...`;
         }
     };
-    
-    const router = useRouter();
-
-    const onClickLogo = () => {
-        router.push('/')
-    }
-    // useEffect(() => {
-    //     router.prefetch('/');
-    //   }, [router]);
 
     return (
         <HeaderView>
             {/* svg 파일 첫 글자 대문자 안됨 */}
-            <LogoView onClick={onClickLogo}>
+            <LogoView>
                 <LogoBox>
                     <Image
                         src={"/img/dangdangz-logo.png"}
@@ -68,7 +47,7 @@ const Header = () => {
                 </LogoBox>
                 <LogoTitle>DangDangz</LogoTitle>
             </LogoView>
-            
+
             <SearchView>
                 {/* 자동완성로직 */}
                 <Autocomplete
@@ -88,21 +67,18 @@ const Header = () => {
             </SearchView>
 
             <MenuView>
-                {/* <MenuItem>
-                    <IconView>
-                        <MdOutlineSearch />
-                    </IconView>
-                </MenuItem> */}
-                <MenuItem onClick={walletConnect}>
-                    Connect wallet 
+                <MenuItem>
+                    <AddressText>{truncateAddress(address)}</AddressText>
                     <IconView style={{ marginLeft: "1vw" }}>
                         <MdOutlineAccountBalanceWallet />
-                    </IconView>  
+                    </IconView>
                 </MenuItem>
             </MenuView>
         </HeaderView>
     );
 };
+
+export default Header;
 
 const HeaderView = styled.div`
     padding: 2vw 4vw;
@@ -138,9 +114,9 @@ const LogoTitle = styled.div`
 
 const SearchView = styled.div`
     flex: 1;
-    border: 3px solid #E5E8EB;
+    border: 3px solid #e5e8eb;
     border-radius: 12px;
-    box-shadow: 0px 5px 0px #E5E8EB;
+    box-shadow: 0px 5px 0px #e5e8eb;
     @media screen and (max-width: 768px) {
         display: none;
     }
@@ -155,9 +131,9 @@ const MenuItem = styled.div`
     display: flex;
     padding: 10px;
     margin: 0px 4px;
-    color: #8A939B;
+    color: #8a939b;
     align-items: center;
-    border: 3px solid #E5E8EB;
+    border: 3px solid #e5e8eb;
     border-radius: 12px;
     box-shadow: 0px 5px 0px #e5e8eb;
     cursor: pointer;
@@ -172,4 +148,9 @@ const IconView = styled.div`
     font-size: x-large;
 `;
 
-export default Header;
+const AddressText = styled.div`
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px; /* 주소가 표시될 최대 너비 */
+`;

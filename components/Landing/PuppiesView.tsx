@@ -1,39 +1,38 @@
-import React from 'react'
+import React from "react";
 import styled from "@emotion/styled";
-import { MdVerified } from 'react-icons/md'
-import "slick-carousel/slick/slick.css"; 
+import { MdVerified } from "react-icons/md";
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-
+import { useRouter } from "next/router";
 
 const PuppiesView = () => {
+    const router = useRouter();
 
-    const PuppyCard = ()=> {
+    const pageChange = () => {
+        router.push("/nfts/1");
+    };
+
+    const PuppyCard = () => {
         return (
             <CardView>
-            <CardInuBox />
-            <CardTitle>Shiba Inu <MdVerified color='#04B154' size={20}/></CardTitle>
-            <CardTable>
-                <TableCell>
-                    <TableHead>
-                        FLOOR
-                    </TableHead>
-                    <TableData>
-                        0.02 ETH
-                    </TableData>
-                </TableCell>
-                <TableCell>
-                    <TableHead>
-                        TOTAL VOLUME
-                    </TableHead>
-                    <TableData>
-                        0.66 ETH
-                    </TableData>
-                </TableCell>
-            </CardTable>
+                <CardInuBox />
+                <CardTitle>
+                    Shiba Inu <MdVerified color="#04B154" size={20} />
+                </CardTitle>
+                <CardTable>
+                    <TableCell>
+                        <TableHead>FLOOR</TableHead>
+                        <TableData>0.02 ETH</TableData>
+                    </TableCell>
+                    <TableCell>
+                        <TableHead>TOTAL VOLUME</TableHead>
+                        <TableData>0.66 ETH</TableData>
+                    </TableCell>
+                </CardTable>
             </CardView>
-        )
-    }
+        );
+    };
 
     const settings = {
         dots: false,
@@ -42,31 +41,30 @@ const PuppiesView = () => {
         slidesToShow: 1,
         slidesToScroll: 1,
         arrows: false,
-      };
+    };
 
-  return (
-    <>
-    <PuppyWrapper>
-            <PuppyCard />
-            <PuppyCard />
-            <PuppyCard />
-    </PuppyWrapper>
-    <MobileWrapper>
-        <Slider {...settings} >
-            <PuppyCard />
-            <PuppyCard />
-            <PuppyCard />
-        </Slider>
-    </MobileWrapper>
-    </>
-  )
-}
+    return (
+        <div>
+            <PuppyWrapper onClick={pageChange}>
+                <PuppyCard />
+                <PuppyCard />
+                <PuppyCard />
+            </PuppyWrapper>
+            <MobileWrapper>
+                <Slider {...settings}>
+                    <PuppyCard />
+                    <PuppyCard />
+                    <PuppyCard />
+                </Slider>
+            </MobileWrapper>
+        </div>
+    );
+};
 
 const PuppyWrapper = styled.div`
     display: flex;
     justify-content: space-around;
-    margin : 40px 0px;
-    
+    margin: 40px 0px;
 
     @media screen and (max-width: 768px) {
         display: none;
@@ -74,7 +72,7 @@ const PuppyWrapper = styled.div`
 `;
 
 const MobileWrapper = styled.div`
-    margin : 40px 0px;
+    margin: 40px 0px;
     display: none;
     @media screen and (max-width: 768px) {
         display: initial;
@@ -150,7 +148,7 @@ const TableHead = styled.div`
 
     width: 119.38px;
     height: 18.5px;
-    color: #707A83;
+    color: #707a83;
     font-size: 12px;
 `;
 
@@ -164,5 +162,4 @@ const TableData = styled.div`
     font-size: 16px;
 `;
 
-
-export default PuppiesView
+export default PuppiesView;

@@ -1,17 +1,16 @@
 import styled from '@emotion/styled';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ethers } from 'ethers';
 import abi from './abi';
 import { NFTStorage } from 'nft.storage';
+import { userAccountState } from '../../pages/_app';
 
 const Banner = ({ ...props }) => {
     const client = new NFTStorage({
         token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweGU1RUQ2ZjQyZDYwQUExOGM1NDgxNzI0YkZGZUM0NmM5ZTM1OThGZjMiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTY4NDQ2NzIxNzE0NCwibmFtZSI6InBhbmd5b2Vsb24ifQ.pV5R1O4NaG4UyPPTbyVIRP3HsDvUEaOuZW7cdsvDzPs',
     });
 
-    const [provider, setProvider] = useState<ethers.providers.Web3Provider>();
-    const [contract, setContract] = useState<ethers.Contract>();
     const [signerAddress, setSignerAddress] = useState();
 
     // owner 지갑 인스턴스화
@@ -27,25 +26,27 @@ const Banner = ({ ...props }) => {
 
     // 민팅하기
     const Mint = async () => {
+        let contract;
+        let provider;
         if (typeof window.ethereum !== 'undefined') {
             // 메타마스크가 있을 시 지갑연결 요청
-            const provider = await new ethers.providers.Web3Provider(window.ethereum);
-            setProvider(provider);
+            provider = await new ethers.providers.Web3Provider(window.ethereum);
             const walletAddress = await provider.send('eth_requestAccounts', []);
             setSignerAddress(walletAddress[0]);
             console.log('connected to ', walletAddress);
 
             // 컨트랙트 인스턴스화
-            const contract = new ethers.Contract('0xB74b07A09826318F7a3F1c12e13A9806B0e28AF3', abi, provider);
-            setContract(contract);
+            contract = await new ethers.Contract('0xB74b07A09826318F7a3F1c12e13A9806B0e28AF3', abi, provider);
         }
 
         // view함수 호출 (tokenId)
         const tokenId = await contract?.tokenId();
 
         // 컨트랙트와 연결된 지갑 결합(?), mint함수 호출
-        const signer: any = provider?.getSigner();
-        const contractWithSigner = contract?.connect(signer);
+        const signer: any = await provider?.getSigner();
+        console.log(signer);
+        const contractWithSigner = await contract?.connect(signer);
+        console.log(contractWithSigner);
         contractWithSigner?.mint();
 
         // 랜덤값 생성 후 ipfs에 올리기, 매핑할 uri 생성
@@ -93,7 +94,7 @@ const Banner = ({ ...props }) => {
                     //   borderWidth: 'none',
                     //   boxShadow: '0px 0px 2px 2px rgb(255,255,255)',
                 }}
-                onClick={async () => Mint()}
+                onClick={async () => await Mint()}
             >
                 Minting Now
             </div>

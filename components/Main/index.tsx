@@ -288,24 +288,32 @@ import { OrbitControls } from "@react-three/drei";
 import { styled } from "styled-components";
 import Wallet from "./Wallet";
 import DogRotate from "./DogRotate";
+import { RecoilRoot } from "recoil";
+import background from "./../../public/banner/laura-chan-laura-render2 1.png";
 
 function MainPage() {
     return (
-        <Container>
-            <Canvas
-                className="canvas"
-                style={{ width: "100%", height: "60vh" }}
-            >
-                <OrbitControls enableZoom={false} />
-                <ambientLight intensity={0.5} />
-                <directionalLight position={[-2, 5, 2]} intensity={1} />
-                <Suspense fallback={null}>
-                    <DogRotate />
-                </Suspense>
-            </Canvas>
+        <RecoilRoot>
+            <Container>
+                <Canvas
+                    className="canvas"
+                    style={{
+                        width: "100%",
+                        height: "60vh",
+                        backgroundImage: `url(${background})`,
+                    }}
+                >
+                    <OrbitControls enableZoom={false} />
+                    <ambientLight intensity={0.5} />
+                    <directionalLight position={[-2, 5, 2]} intensity={1} />
+                    <Suspense fallback={null}>
+                        <DogRotate />
+                    </Suspense>
+                </Canvas>
 
-            <Wallet />
-        </Container>
+                <Wallet />
+            </Container>
+        </RecoilRoot>
     );
 }
 
