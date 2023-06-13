@@ -3,6 +3,9 @@ import { Autocomplete, TextField } from "@mui/material";
 import Image from "next/image";
 import React from "react";
 import { MdOutlineAccountBalanceWallet } from "react-icons/md";
+import { useRecoilValue } from "recoil";
+import { userAccountState } from "./../../pages/_app";
+import address from "./../../pages/address";
 
 declare global {
     interface Window {
@@ -12,7 +15,19 @@ declare global {
     }
 }
 
-const Header = ({ userAccount }: { userAccount: string | undefined }) => {
+const Header = () => {
+    const userAccount = useRecoilValue(userAccountState);
+
+    const truncateAddress = (address: string) => {
+        // 주소를 원하는 길이로 제한하는 로직 구현
+        const maxLength = 12; // 원하는 최대 길이
+        if (address.length <= maxLength) {
+            return address;
+        } else {
+            return `${address.slice(0, maxLength)}...`;
+        }
+    };
+
     return (
         <HeaderView>
             {/* svg 파일 첫 글자 대문자 안됨 */}
@@ -53,7 +68,7 @@ const Header = ({ userAccount }: { userAccount: string | undefined }) => {
 
             <MenuView>
                 <MenuItem>
-                    Connect wallet
+                    <AddressText>{truncateAddress(address)}</AddressText>
                     <IconView style={{ marginLeft: "1vw" }}>
                         <MdOutlineAccountBalanceWallet />
                     </IconView>
@@ -62,6 +77,8 @@ const Header = ({ userAccount }: { userAccount: string | undefined }) => {
         </HeaderView>
     );
 };
+
+export default Header;
 
 const HeaderView = styled.div`
     padding: 2vw 4vw;
@@ -131,4 +148,9 @@ const IconView = styled.div`
     font-size: x-large;
 `;
 
-export default Header;
+const AddressText = styled.div`
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px; /* 주소가 표시될 최대 너비 */
+`;
